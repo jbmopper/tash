@@ -1,8 +1,6 @@
 package tash
 
-import (
-	"strconv"
-)
+import ()
 
 const m = 62 // 26 lower case, 26 upper case, 10 digits
 
@@ -16,17 +14,19 @@ func Tash(i int) string {
 		case ii < 0 || ii > 61:
 			panic("Trying to parse an invalid integer...")
 		case ii < 10:
-			s = strconv.Itoa(ii)
+			ii = ii + 48
 		case ii < 37:
 			ii = ii - 10 + 97
-			s = string(ii)
 		case ii >= 37:
 			ii = ii - 37 + 65
-			s = string(ii)
 		default:
 			panic("Math is hard")
 		}
+		s = string(ii)
 		return s
+	}
+	if i == 0 {
+		out = "0"
 	}
 	for i > 0 {
 		q := i % m

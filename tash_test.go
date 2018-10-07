@@ -5,8 +5,8 @@ import (
 )
 
 func TestTash(t *testing.T) {
-	input := 620
-	expected := "a0"
+	input := -5
+	expected := ""
 	actual := Tash(input)
 
 	if actual != expected {
